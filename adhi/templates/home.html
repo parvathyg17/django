@@ -1,0 +1,23 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body  class="a1">
+    <h1>Hello World</h1>
+    <a href="{% url 'home' %}">home</a>
+    <a href="{% url 'next' %}">next</a>
+    {% block body_block %}
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, a facere dicta error atque nostrum impedit possimus cum numquam nemo quas! Vel alias tempora est rem quae excepturi magni fuga?
+    </p>
+    <img src="{% static 'images/img1/i1.jpg' %}" alt="img">
+    {% endblock %}
+</body>
+</html>
