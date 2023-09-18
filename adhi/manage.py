@@ -1,11 +1,18 @@
+<<<<<<< HEAD
 #!/usr/bin/env python
+=======
+#!/usr/bin/env python3
+>>>>>>> initial commit
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
 
 
 def main():
+<<<<<<< HEAD
     """Run administrative tasks."""
+=======
+>>>>>>> initial commit
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'adhi.settings')
     try:
         from django.core.management import execute_from_command_line
