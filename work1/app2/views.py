@@ -1,8 +1,9 @@
 from django.shortcuts import render
-from django.contrib.auth.forms import UserCreationForm
+# from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
 # Create your views here.
 from django.contrib.auth import authenticate,login,logout
+from app2.forms import CustomUserCreationForm
 def home(request):
     return HttpResponse("Hello Django")
 def home(request):
@@ -10,9 +11,9 @@ def home(request):
 def base(request):
     return render(request,'base.html')
 def signUp1(request):
-    form=UserCreationForm()
+    form=CustomUserCreationForm()
     if(request.method=='POST'):
-        form=UserCreationForm(request.POST)
+        form=CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
             return home(request)
@@ -31,3 +32,9 @@ def user_login1(request):
 def user_logout1(request):
     logout(request)
     return user_login1(request)
+
+def pw_change_form(request):
+    return render(request,'password_change_form.html')
+
+def pw_change_done(request):
+    return render(request,'password_change_done.html')

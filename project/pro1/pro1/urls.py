@@ -1,5 +1,5 @@
 """
-URL configuration for work1 project.
+URL configuration for pro1 project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -15,17 +15,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
-from app2 import views
-
+from django.urls import path
+from app1 import views
 urlpatterns = [
-    path('accounts/',include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
-    path('base/',views.base,name='base'),
-    path('logout1/',views.user_logout1,name='logout1'),
-    path('',views.home,name='home'),
-    path('sigup',views.signUp1,name='signup1'),
-    path('login1/',views.user_login1,name='login1'),
-    path('/as',views.pw_change_form),
-    path('aj/',views.pw_change_done),
+    path('az/',views.form1),
+    path('ad/',views.list1),
+    path('asd/',views.form2),
+    path('',views.form3),
 ]
