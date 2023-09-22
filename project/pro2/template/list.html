@@ -15,9 +15,12 @@
             <td>{{i.emp_dep}}</td>
             <td>{{i.emp_salary}}</td>
         </tr>
-        <a href="{% url ' ' %}"></a><input type="button" value="Add">
-        <a href="#">Edit</a>
-        <a href="#">Delete</a>
+        <tr>
+        <a href="{% url 'ls' %}">Add</a>
+        <a href="{% url 'edit' i.id %}">Edit</a>
+        <a href="{% url 'del' i.id %}">Delete</a>
+        <a href="{% url 'view' i.id %}">View</a>
+        </tr>
         {% endfor %}
     </tbody>
 </body>

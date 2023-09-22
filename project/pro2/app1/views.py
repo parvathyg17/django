@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 # Create your views here.
 from app1.models import employee
@@ -19,3 +19,33 @@ def form1(request):
         o.save()
         return list(request)
     return render(request,'form.html')
+
+def edit_emp(request,pk):
+    employe=employee.objects.get(id=pk)
+    form=employeeForm(instance=employe)
+    if request.method=='POST':
+        form=employeeForm(request.POST,instance=employe)
+        if form.is_valid():
+            form.save()
+            return redirect('list')
+    context={
+        'employee':employe,
+        'form':form,
+    }
+    return render(request,'edit.html',context)
+def del_emp(request,pk):
+    emploe=employee.objects.get(id=pk)
+    if request.method=='POST':
+        emploe.delete()
+        return redirect('list')
+    context={
+        'employee':emploe,
+    }
+    return render(request,'delete.html',context)
+def view_emp(request,pk):
+    emploe=employee.objects.get(id=pk)
+    return render(request,'view.html',{"employee":emploe})
+
+
+
+ 
