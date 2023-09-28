@@ -4,6 +4,8 @@ from django.contrib.auth import authenticate ,login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
+from app1.models import Book
+from app1.forms import BookCreate
 # Create your views here.
 
 def home1(request):
@@ -60,3 +62,19 @@ def homepage(request):
 def userlogout(request):
     logout(request)
     return redirect(loginpage)
+
+def index(request):
+    shelf=Book.objects.all()
+    return render(request, 'list.html',{'shelf':shelf})
+
+def upload(request):
+    upload=BookCreate()
+    if request.method=='POST':
+        upload=BookCreate(request.POST,request.FILES)
+        if upload.is_valid():
+            upload.save()
+            return redirect('index')
+        else:
+            return HttpResponse("""your form is wrong, reload on <a href="{{url : 'index'}}"reload</a>""")
+    else:
+        return render(request, 'upload_form.html',{'upload_form':upload})

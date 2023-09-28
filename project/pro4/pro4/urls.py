@@ -17,12 +17,23 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from app1 import views
+from pro4.settings import DEBUG, STATIC_URL,STATIC_ROOT,MEDIA_URL,MEDIA_ROOT
+from django.conf.urls.static import static
 
 urlpatterns = [
      path('admin/', admin.site.urls),
     path('base/',views.home1),
-    path('',views.reg,name='reg'),
+    path('reg/',views.reg,name='reg'),
     path('login/',views.loginpage,name="login"),
     path('home/',views.homepage,name="homepage"),
     path('logout',views.userlogout,name="userlogout"),
+    path('list/',views.index, name='index'),
+    path('',views.upload, name='upload-book'),
+    
+
 ]
+
+
+if DEBUG:
+    urlpatterns += static(STATIC_URL,document_root=STATIC_ROOT)
+    urlpatterns += static(MEDIA_URL,document_root=MEDIA_ROOT)
