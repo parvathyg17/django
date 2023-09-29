@@ -75,6 +75,6 @@ def upload(request):
             upload.save()
             return redirect('index')
         else:
-            return HttpResponse("""your form is wrong, reload on <a href="{{url : 'index'}}"reload</a>""")
+            return HttpResponse("""your form is wrong, reload on <a href="{{url : 'index'}}"reload</a> """)
     else:
         return render(request, 'upload_form.html',{'upload_form':upload})
