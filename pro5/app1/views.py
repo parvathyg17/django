@@ -6,7 +6,12 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def signUp(request):
-    return render(request,'signup.html')
+    if request.user.is_authenticated:
+        return render(request,'signup.html')
+    else:
+        if request.method == "POST":
+            username=request.POST.get('uname')
+            email=request.POST.get('')
 
 def loginpage(request):
     if request.user.is_authenticated:
