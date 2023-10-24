@@ -2,25 +2,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My Drag-and-Drop Example</title>
+    <title>Drag</title>
     <link rel="stylesheet" href="{% static 'css/style.css'%}" />
   </head>
   <body>
-        <!-- <div class="example-parent">
+        <div class="example-parent">
             <div>
                 <div class="example-origin">
                     <div id="draggable-1" class="example-draggable" draggable="true" ondragstart="onDragStart(event);">
-                        draggable
+                        Drag1
                     </div>
                 </div>
                 <div class="example-origin">
                     <div id="draggable-1" class="example-draggable" draggable="true" ondragstart="onDragStart(event);">
-                        draggable
+                        Drag2
                     </div>
                 </div>
                 <div class="example-origin">
                     <div id="draggable-1" class="example-draggable" draggable="true" ondragstart="onDragStart(event);">
-                        draggable
+                        Drag3
                     </div>
                 </div>
             </div>
@@ -28,56 +28,7 @@
             ondrop="onDrop(event);">
                 dropzone
             </div>
-        </div> -->
-
-
-
-
-        {% extends 'list.html' %}
-        <div class="example-parent">
-          <div>
-              <div class="example-origin">
-                  <div id="draggable-1" class="example-draggable" draggable="true" ondragstart="onDragStart(event);">
-                    <table>
-                      {% for field in upload_form %}
-                      <tr>
-                          <th>{{field.label}}</th>
-                          <td>{{field}}</td>
-                      </tr>
-                      {% endfor %}
-                    </table>
-                  </div>
-              </div>
-              <div class="example-origin">
-                  <div id="draggable-1" class="example-draggable" draggable="true" ondragstart="onDragStart(event);">
-                    <table>
-                      {% for field in upload_form %}
-                      <tr>
-                          <th>{{field.label}}</th>
-                          <td>{{field}}</td>
-                      </tr>
-                      {% endfor %}
-                    </table>
-                  </div>
-              </div>
-              <div class="example-origin">
-                  <div id="draggable-1" class="example-draggable" draggable="true" ondragstart="onDragStart(event);">
-                    <table>
-                      {% for field in upload_form %}
-                      <tr>
-                          <th>{{field.label}}</th>
-                          <td>{{field}}</td>
-                      </tr>
-                      {% endfor %}
-                    </table>
-                  </div>
-              </div>
-          </div>
-          <div class="example-dropzone" ondragover="onDragOver(event);"
-          ondrop="onDrop(event);">
-              <h2>Dropzone</h2>
-          </div>
-      </div>
+        </div>
 
 
 
