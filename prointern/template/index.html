@@ -33,10 +33,20 @@
 
 
 
-        {% extends 'list.html' %}
         <div class="example-parent">
           <div>
               <div class="example-origin">
+                {% for field in b %}
+                  <div id="draggable-1" class="example-draggable" draggable="true" ondragstart="onDragStart(event);"> 
+                      <tr>
+                          <th>{{field.name}}</th>
+                          <!-- <td>{{field}}</td> -->
+                      </tr>
+                  </div>
+                  {% endfor %}
+              </div>
+             
+              <!-- <div class="example-origin">
                   <div id="draggable-1" class="example-draggable" draggable="true" ondragstart="onDragStart(event);">
                     <table>
                       {% for field in upload_form %}
@@ -47,8 +57,8 @@
                       {% endfor %}
                     </table>
                   </div>
-              </div>
-              <div class="example-origin">
+              </div> -->
+              <!-- <div class="example-origin">
                   <div id="draggable-1" class="example-draggable" draggable="true" ondragstart="onDragStart(event);">
                     <table>
                       {% for field in upload_form %}
@@ -59,31 +69,13 @@
                       {% endfor %}
                     </table>
                   </div>
-              </div>
-              <div class="example-origin">
-                  <div id="draggable-1" class="example-draggable" draggable="true" ondragstart="onDragStart(event);">
-                    <table>
-                      {% for field in upload_form %}
-                      <tr>
-                          <th>{{field.label}}</th>
-                          <td>{{field}}</td>
-                      </tr>
-                      {% endfor %}
-                    </table>
-                  </div>
-              </div>
+              </div> -->
           </div>
           <div class="example-dropzone" ondragover="onDragOver(event);"
           ondrop="onDrop(event);">
               <h2>Dropzone</h2>
           </div>
       </div>
-
-
-
-
-
-
         <!-- <div class="example-parent">
             <h1>To-do list</h1>
             <div class="example-origin">
@@ -129,8 +121,7 @@
             >
               Done
             </div>
-          </div> -->
-          
+          </div> -->  
         <script src="{% static 'css/script.js'%}"></script>
   </body>
 </html>

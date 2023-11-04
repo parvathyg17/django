@@ -2,12 +2,13 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.http import HttpResponse
-from app1.models import Book
+from app1.models import Book,data
 from app1.forms import BookCreate
 
 # Create your views here.
 def drag(request):
-    return render(request, "index.html",)
+    b=data.objects.all()
+    return render(request,'index.html',{'b':b})
 
 
 def upload(request):
@@ -25,3 +26,7 @@ def upload(request):
 def index(request):
     shelf=Book.objects.all()
     return render(request, 'list.html',{'shelf':shelf})        
+
+# def drop(request):
+#     b=data.objects.all()
+#     return render(request,'index.html',{'b':b})

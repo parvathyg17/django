@@ -11,3 +11,5 @@ class Book(models.Model):
 
     def __str__(self):
         return self.name
+class data(models.Model):
+    name=models.CharField(max_length=20)
